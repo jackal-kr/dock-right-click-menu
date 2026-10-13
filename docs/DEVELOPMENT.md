@@ -120,6 +120,38 @@ Things to know:
 - The log will contain unrelated warnings from other extensions (GSConnect, Bluetooth battery,
   `Clutter-WARNING … StBin`); ignore anything that does not mention this extension.
 
+### What the nested shell is, and is not
+
+`make nested` runs `dbus-run-session -- gnome-shell --devkit --wayland`. The **Mutter Development
+Kit** window is a small separate program, `/usr/libexec/mutter-devkit` (package `mutter-dev-bin`).
+GNOME Shell runs without a real display, drawing onto a virtual monitor, and the window shows that
+picture and forwards your mouse and keyboard to it. It replaces the old `gnome-shell --nested`
+mode. Closing the window ends the whole nested session.
+
+**What it contains:** a complete GNOME Shell (top bar, dock, overview, desktop icons) that loads the
+same extensions as your real session, including Ubuntu Dock and this extension from the linked
+source folder. Looking Glass (`Alt+F2`, `lg`) works inside it.
+
+**What is separate from your real session:**
+
+- its own D-Bus session bus, shell process, notifications and Extensions/preferences process (so
+  cached preferences code in the real session does not matter, and it needs no logout);
+- fresh, unconfigured services: expect noise in the log (secrets service timeout, Online Accounts
+  popups, GSConnect translation messages). Ignore anything that does not mention this extension.
+
+**What is *not* separate: it is not a sandbox for your data.**
+
+- It runs as your user, with your real home folder and the same settings database. Changing a
+  setting inside it changes the real setting (this is also how the extension gets enabled there).
+- Apps started inside it are real programs: deleting a file in Files inside the window deletes it
+  on your disk.
+
+**What it cannot test:** real hardware (several physical monitors, suspend, brightness, fractional
+scaling of a real panel), the lock and login screens, the real keyring and autostart apps, and
+anything that depends on the polkit authentication agent. The nested shell has its own agent while
+your login session already owns that role, so test *Run as administrator* in your real session
+(see the checklist below).
+
 ## 4. Checking a change end to end
 
 Before a commit:
