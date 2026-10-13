@@ -166,6 +166,12 @@ dock-right-click-menu/
 [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md).** The short version:
 
 ```bash
+./scripts/setup-dev.sh --run   # everything below in one step, then opens the nested shell window
+```
+
+Or manually:
+
+```bash
 sudo apt install git make zip gettext libglib2.0-bin nodejs npm gnome-shell mutter-dev-bin dbus-daemon
 npm install       # once, for ESLint
 make doctor       # checks the machine, tells you what is missing

@@ -2,6 +2,13 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "label": "Setup dev environment",
+      "type": "shell",
+      "command": "./scripts/setup-dev.sh",
+      "presentation": { "panel": "dedicated", "reveal": "always" },
+      "problemMatcher": []
+    },
+    {
       "label": "Check environment",
       "type": "shell",
       "command": "make doctor",

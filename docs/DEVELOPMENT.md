@@ -4,7 +4,31 @@ How to set up a machine so you can test, run and debug the extension. Written fo
 (GNOME Shell 50, Wayland); the same steps work on any GNOME 49+ distribution with the package
 names adjusted.
 
-## 1. One-time setup
+## 0. Quick start (automatic)
+
+```bash
+git clone https://github.com/jackal-kr/dock-right-click-menu.git
+cd dock-right-click-menu
+./scripts/setup-dev.sh --run      # or: make setup, then make nested
+```
+
+The script (safe to re-run) asks for your password once and then:
+
+1. installs the missing packages (list in 1.1, including `mutter-dev-bin`);
+2. runs `npm install`;
+3. removes a real zip install if one hides your edits, and links the working tree into
+   `~/.local/share/gnome-shell/extensions/`;
+4. adds the extension to `org.gnome.shell enabled-extensions` with `gsettings` (this is what lets
+   the nested shell load it **without logging out**; `gnome-extensions enable` cannot do that
+   because your running shell has not seen the folder yet);
+5. runs the unit tests, ESLint and `make doctor`;
+6. with `--run`, opens the **Mutter Development Kit** window with a GNOME desktop inside.
+
+From VS Code: *Terminal ▸ Run Task… ▸ Setup dev environment*, then *Nested shell*.
+Your real session will pick the extension up at its next login. Sections 1 and 2 below describe
+the same steps manually.
+
+## 1. One-time setup (manual)
 
 ### 1.1 System packages
 
@@ -57,15 +81,16 @@ make link        # compiles schema + translations, symlinks the tree into
                  # ~/.local/share/gnome-shell/extensions/dock-right-click-menu@jod.local
 ```
 
-GNOME Shell only discovers *new* extension folders at start-up, so the first time **log out and
-back in** (Wayland cannot restart the shell in place). Then enable it:
+The nested shell loads the extension straight away (see section 0 for how it is enabled). Your
+*real* session only discovers new extension folders at start-up, so for it **log out and back in**
+once (Wayland cannot restart the shell in place). Then enable it:
 
 ```bash
 gnome-extensions enable dock-right-click-menu@jod.local
 gnome-extensions info dock-right-click-menu@jod.local     # State: ACTIVE
 ```
 
-After this one-time step you never log out again to test code: use the nested shell.
+You never need to log out again to test code: use the nested shell.
 
 ## 3. The everyday loop
 

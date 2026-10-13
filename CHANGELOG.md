@@ -12,6 +12,8 @@ human-readable `version-name`.
 - *Developer* row on the About page, and a screenshot in the README.
 - VS Code workspace (tasks, settings, recommended extensions), EditorConfig, `jsconfig.json` with
   GNOME Shell type definitions for IntelliSense, `CLAUDE.md` project guide.
+- `make setup` / `scripts/setup-dev.sh [--run]`: one-shot dev environment (packages, npm, link,
+  enable, tests) and optional nested-shell launch.
 - `docs/DEVELOPMENT.md`: complete setup, test and debug guide; `make doctor` checks the machine
   (including the `mutter-dev-bin` package needed by `make nested`).
 - `make link` / `make unlink` to run the working tree directly from GNOME Shell.
