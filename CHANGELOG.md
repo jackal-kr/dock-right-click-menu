@@ -7,11 +7,19 @@ human-readable `version-name`; the integer `version` is set by extensions.gnome.
 
 ## [Unreleased]
 
-## [1.3.0] - 2026-10-13
+## [1.3.1] - 2026-10-13
 
 ### Added
 - Extension icon (`docs/icon.svg`, PNG exports), shown in the README and uploaded on
   extensions.gnome.org.
+
+### Fixed
+- `make uninstall` no longer deletes the working tree when the extension was linked with
+  `make link`; it only removes the link.
+
+## [1.3.0] - 2026-10-13
+
+### Added
 - **Run as administrator**, chosen app by app (off for every app by default): hold <kbd>Ctrl</kbd>
   while choosing a flagged app in the menu. Flagged entries show *Name (as admin)* while Ctrl is held.
   Terminal emulators open on a `sudo -i` shell, command-line apps run with `sudo` in the default
@@ -19,10 +27,6 @@ human-readable `version-name`; the integer `version` is set by extensions.gnome.
 - An *Allow running as administrator* shield button on every app row (Menu page), stored as an
   optional `"admin": true` on the app item. There is no global switch.
 - Polish and Ukrainian translations of the new strings; unit tests for the command builder.
-
-### Fixed
-- `make uninstall` no longer deletes the working tree when the extension was linked with
-  `make link`; it only removes the link.
 
 ### Changed
 - `metadata.json` no longer has the deprecated `version` key (extensions.gnome.org sets it) and its
