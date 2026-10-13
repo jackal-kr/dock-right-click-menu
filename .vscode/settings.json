@@ -1,0 +1,35 @@
+{
+  "editor.tabSize": 4,
+  "editor.insertSpaces": true,
+  "editor.rulers": [120],
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "files.associations": {
+    "*.gschema.xml": "xml",
+    "*.pot": "po"
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "dist": true,
+    "**/locale": true,
+    "**/gschemas.compiled": true
+  },
+  "eslint.useFlatConfig": true,
+  "eslint.validate": ["javascript"],
+  "javascript.preferences.importModuleSpecifierEnding": "js",
+  "javascript.updateImportsOnFileMove.enabled": "never",
+  "[javascript]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
+  },
+  "[makefile]": {
+    "editor.insertSpaces": false,
+    "editor.detectIndentation": false
+  },
+  "[json]": { "editor.tabSize": 2 },
+  "[jsonc]": { "editor.tabSize": 2 },
+  "[xml]": { "editor.tabSize": 2 },
+  "[markdown]": { "files.trimTrailingWhitespace": false }
+}

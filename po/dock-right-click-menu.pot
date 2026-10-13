@@ -1,0 +1,149 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026 JOD (Oleksiy Degtyar)
+# This file is distributed under the same license as the dock-right-click-menu package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: dock-right-click-menu 1.1.1\n"
+"Report-Msgid-Bugs-To: https://github.com/jackal-kr/dock-right-click-menu/issues\n"
+"POT-Creation-Date: 2026-10-13 12:00+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: dock-right-click-menu@jod.local/lib/dockMenu.js:60
+msgid "Configure menu…"
+msgstr ""
+
+#: dock-right-click-menu@jod.local/lib/dockMenu.js:121
+msgid "Folder"
+msgstr ""
+
+#: dock-right-click-menu@jod.local/preferences/aboutPage.js:15
+msgid "About"
+msgstr ""
+
+#: dock-right-click-menu@jod.local/preferences/aboutPage.js:21
+msgid "Version"
+msgstr ""
+
+#: dock-right-click-menu@jod.local/preferences/aboutPage.js:25
+msgid "License"
+msgstr ""
+
+#: dock-right-click-menu@jod.local/preferences/aboutPage.js:29
+msgid "Compatible docks"
+msgstr ""
+
+#: dock-right-click-menu@jod.local/preferences/aboutPage.js:30
+msgid "Ubuntu Dock and Dash to Dock"
+msgstr ""
+
+#: dock-right-click-menu@jod.local/preferences/aboutPage.js:35
+msgid "Homepage"
+msgstr ""
+
+#: dock-right-click-menu@jod.local/preferences/aboutPage.js:41
+msgid "Open"
+msgstr ""
+
+#: dock-right-click-menu@jod.local/preferences/appChooser.js:19
+msgid "Choose application"
+msgstr ""
+
+#: dock-right-click-menu@jod.local/preferences/appChooser.js:25
+msgid "Search applications…"
+msgstr ""
+
+#: dock-right-click-menu@jod.local/preferences/generalPage.js:18
+msgid "General"
+msgstr ""
+
+#: dock-right-click-menu@jod.local/preferences/generalPage.js:20
+msgid "Behaviour"
+msgstr ""
+
+#: dock-right-click-menu@jod.local/preferences/generalPage.js:25
+msgid "Open a new window"
+msgstr ""
+
+#: dock-right-click-menu@jod.local/preferences/generalPage.js:26
+msgid "Focus the app if it is already running"
+msgstr ""
+
+#: dock-right-click-menu@jod.local/preferences/generalPage.js:28
+msgid "When launching an app"
+msgstr ""
+
+#: dock-right-click-menu@jod.local/preferences/generalPage.js:29
+msgid "Apps that cannot open a second window are always focused"
+msgstr ""
+
+#: dock-right-click-menu@jod.local/preferences/generalPage.js:39
+msgid "Show “Configure menu…” entry"
+msgstr ""
+
+#: dock-right-click-menu@jod.local/preferences/generalPage.js:40
+msgid "Always shown while the menu is empty"
+msgstr ""
+
+#: dock-right-click-menu@jod.local/preferences/menuPage.js:27
+msgid "Menu"
+msgstr ""
+
+#: dock-right-click-menu@jod.local/preferences/menuPage.js:35
+msgid "Menu items"
+msgstr ""
+
+#: dock-right-click-menu@jod.local/preferences/menuPage.js:36
+msgid "Shown when you right-click empty space on the dock. A submenu can hold apps and separators."
+msgstr ""
+
+#: dock-right-click-menu@jod.local/preferences/menuPage.js:80
+msgid "Not installed"
+msgstr ""
+
+#: dock-right-click-menu@jod.local/preferences/menuPage.js:92
+msgid "— Separator —"
+msgstr ""
+
+#: dock-right-click-menu@jod.local/preferences/menuPage.js:100 dock-right-click-menu@jod.local/preferences/menuPage.js:116
+msgid "Submenu"
+msgstr ""
+
+#: dock-right-click-menu@jod.local/preferences/menuPage.js:113
+msgid "Submenu title"
+msgstr ""
+
+#: dock-right-click-menu@jod.local/preferences/menuPage.js:145
+msgid "Move up"
+msgstr ""
+
+#: dock-right-click-menu@jod.local/preferences/menuPage.js:146
+msgid "Move down"
+msgstr ""
+
+#: dock-right-click-menu@jod.local/preferences/menuPage.js:147
+msgid "Remove"
+msgstr ""
+
+#: dock-right-click-menu@jod.local/preferences/menuPage.js:175
+msgid "Add application"
+msgstr ""
+
+#: dock-right-click-menu@jod.local/preferences/menuPage.js:178
+msgid "Add separator"
+msgstr ""
+
+#: dock-right-click-menu@jod.local/preferences/menuPage.js:180
+msgid "Add submenu"
+msgstr ""
+
+#: dock-right-click-menu@jod.local/preferences/menuPage.js:181
+msgid "New submenu"
+msgstr ""

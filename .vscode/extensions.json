@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "editorconfig.editorconfig",
+    "redhat.vscode-xml",
+    "mrorz.language-gettext",
+    "anthropic.claude-code"
+  ]
+}

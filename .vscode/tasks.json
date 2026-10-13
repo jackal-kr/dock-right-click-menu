@@ -1,0 +1,59 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Test",
+      "type": "shell",
+      "command": "make test",
+      "group": { "kind": "test", "isDefault": true },
+      "problemMatcher": []
+    },
+    {
+      "label": "Lint",
+      "type": "shell",
+      "command": "make lint",
+      "problemMatcher": ["$eslint-stylish"]
+    },
+    {
+      "label": "Build zip",
+      "type": "shell",
+      "command": "make zip",
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": []
+    },
+    {
+      "label": "Link for development",
+      "type": "shell",
+      "command": "make link",
+      "problemMatcher": []
+    },
+    {
+      "label": "Install zip",
+      "type": "shell",
+      "command": "make install",
+      "problemMatcher": []
+    },
+    {
+      "label": "Nested shell",
+      "type": "shell",
+      "command": "make nested",
+      "isBackground": true,
+      "presentation": { "panel": "dedicated", "reveal": "always" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Shell log",
+      "type": "shell",
+      "command": "journalctl -f -o cat /usr/bin/gnome-shell",
+      "isBackground": true,
+      "presentation": { "panel": "dedicated", "reveal": "always" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Update translations (pot)",
+      "type": "shell",
+      "command": "make pot",
+      "problemMatcher": []
+    }
+  ]
+}

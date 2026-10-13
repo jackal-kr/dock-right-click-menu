@@ -1,0 +1,18 @@
+{
+  "name": "dock-right-click-menu",
+  "version": "1.1.1",
+  "private": true,
+  "description": "Development tooling for the Dock Right-Click Menu GNOME Shell extension (not shipped in the extension package).",
+  "license": "GPL-3.0-or-later",
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@girs/gjs": "*",
+    "@girs/gnome-shell": "^50.0.0",
+    "eslint": "^9.0.0"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "uuid": "dock-right-click-menu@jod.local",
+  "name": "Dock Right-Click Menu",
+  "description": "Adds a configurable menu to a right-click on empty space of the Ubuntu Dock: pick apps, add separators and one level of submenus.",
+  "version": 3,
+  "version-name": "1.1.1",
+  "shell-version": ["49", "50"],
+  "url": "https://github.com/jackal-kr/dock-right-click-menu",
+  "settings-schema": "org.gnome.shell.extensions.dock-right-click-menu",
+  "gettext-domain": "dock-right-click-menu"
+}

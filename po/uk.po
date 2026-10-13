@@ -1,0 +1,149 @@
+# Ukrainian translation for Dock Right-Click Menu.
+# Copyright (C) 2026 JOD (Oleksiy Degtyar)
+# This file is distributed under the same license as the dock-right-click-menu package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: dock-right-click-menu 1.1.1\n"
+"Report-Msgid-Bugs-To: https://github.com/jackal-kr/dock-right-click-menu/issues\n"
+"POT-Creation-Date: 2026-10-13 12:00+0200\n"
+"PO-Revision-Date: 2026-10-13 12:00+0200\n"
+"Last-Translator: JOD (Oleksiy Degtyar)\n"
+"Language-Team: Ukrainian\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: dock-right-click-menu@jod.local/lib/dockMenu.js:60
+msgid "Configure menu…"
+msgstr "Налаштувати меню…"
+
+#: dock-right-click-menu@jod.local/lib/dockMenu.js:121
+msgid "Folder"
+msgstr "Тека"
+
+#: dock-right-click-menu@jod.local/preferences/aboutPage.js:15
+msgid "About"
+msgstr "Про розширення"
+
+#: dock-right-click-menu@jod.local/preferences/aboutPage.js:21
+msgid "Version"
+msgstr "Версія"
+
+#: dock-right-click-menu@jod.local/preferences/aboutPage.js:25
+msgid "License"
+msgstr "Ліцензія"
+
+#: dock-right-click-menu@jod.local/preferences/aboutPage.js:29
+msgid "Compatible docks"
+msgstr "Сумісні док-панелі"
+
+#: dock-right-click-menu@jod.local/preferences/aboutPage.js:30
+msgid "Ubuntu Dock and Dash to Dock"
+msgstr "Ubuntu Dock і Dash to Dock"
+
+#: dock-right-click-menu@jod.local/preferences/aboutPage.js:35
+msgid "Homepage"
+msgstr "Домашня сторінка"
+
+#: dock-right-click-menu@jod.local/preferences/aboutPage.js:41
+msgid "Open"
+msgstr "Відкрити"
+
+#: dock-right-click-menu@jod.local/preferences/appChooser.js:19
+msgid "Choose application"
+msgstr "Виберіть застосунок"
+
+#: dock-right-click-menu@jod.local/preferences/appChooser.js:25
+msgid "Search applications…"
+msgstr "Пошук застосунків…"
+
+#: dock-right-click-menu@jod.local/preferences/generalPage.js:18
+msgid "General"
+msgstr "Загальні"
+
+#: dock-right-click-menu@jod.local/preferences/generalPage.js:20
+msgid "Behaviour"
+msgstr "Поведінка"
+
+#: dock-right-click-menu@jod.local/preferences/generalPage.js:25
+msgid "Open a new window"
+msgstr "Відкривати нове вікно"
+
+#: dock-right-click-menu@jod.local/preferences/generalPage.js:26
+msgid "Focus the app if it is already running"
+msgstr "Перемикатися на застосунок, якщо він уже запущений"
+
+#: dock-right-click-menu@jod.local/preferences/generalPage.js:28
+msgid "When launching an app"
+msgstr "Під час запуску застосунку"
+
+#: dock-right-click-menu@jod.local/preferences/generalPage.js:29
+msgid "Apps that cannot open a second window are always focused"
+msgstr "Застосунки, які не можуть відкрити друге вікно, завжди просто активуються"
+
+#: dock-right-click-menu@jod.local/preferences/generalPage.js:39
+msgid "Show “Configure menu…” entry"
+msgstr "Показувати пункт «Налаштувати меню…»"
+
+#: dock-right-click-menu@jod.local/preferences/generalPage.js:40
+msgid "Always shown while the menu is empty"
+msgstr "Завжди показується, поки меню порожнє"
+
+#: dock-right-click-menu@jod.local/preferences/menuPage.js:27
+msgid "Menu"
+msgstr "Меню"
+
+#: dock-right-click-menu@jod.local/preferences/menuPage.js:35
+msgid "Menu items"
+msgstr "Елементи меню"
+
+#: dock-right-click-menu@jod.local/preferences/menuPage.js:36
+msgid "Shown when you right-click empty space on the dock. A submenu can hold apps and separators."
+msgstr "Показується після клацання правою кнопкою миші на порожньому місці дока. Підменю може містити застосунки та роздільники."
+
+#: dock-right-click-menu@jod.local/preferences/menuPage.js:80
+msgid "Not installed"
+msgstr "Не встановлено"
+
+#: dock-right-click-menu@jod.local/preferences/menuPage.js:92
+msgid "— Separator —"
+msgstr "— Роздільник —"
+
+#: dock-right-click-menu@jod.local/preferences/menuPage.js:100 dock-right-click-menu@jod.local/preferences/menuPage.js:116
+msgid "Submenu"
+msgstr "Підменю"
+
+#: dock-right-click-menu@jod.local/preferences/menuPage.js:113
+msgid "Submenu title"
+msgstr "Назва підменю"
+
+#: dock-right-click-menu@jod.local/preferences/menuPage.js:145
+msgid "Move up"
+msgstr "Перемістити вгору"
+
+#: dock-right-click-menu@jod.local/preferences/menuPage.js:146
+msgid "Move down"
+msgstr "Перемістити вниз"
+
+#: dock-right-click-menu@jod.local/preferences/menuPage.js:147
+msgid "Remove"
+msgstr "Вилучити"
+
+#: dock-right-click-menu@jod.local/preferences/menuPage.js:175
+msgid "Add application"
+msgstr "Додати застосунок"
+
+#: dock-right-click-menu@jod.local/preferences/menuPage.js:178
+msgid "Add separator"
+msgstr "Додати роздільник"
+
+#: dock-right-click-menu@jod.local/preferences/menuPage.js:180
+msgid "Add submenu"
+msgstr "Додати підменю"
+
+#: dock-right-click-menu@jod.local/preferences/menuPage.js:181
+msgid "New submenu"
+msgstr "Нове підменю"
