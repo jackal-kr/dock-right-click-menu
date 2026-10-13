@@ -8,6 +8,8 @@ human-readable `version-name`.
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-10-13
+
 ### Added
 - *Developer* row on the About page, and a screenshot in the README.
 - VS Code workspace (tasks, settings, recommended extensions), EditorConfig, `jsconfig.json` with

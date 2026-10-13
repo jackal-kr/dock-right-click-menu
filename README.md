@@ -38,7 +38,7 @@ Other docks (Dash to Panel, Dock from Dash, ...) are not detected.
 ### From a release zip
 
 ```bash
-gnome-extensions install --force dock-right-click-menu@jod.local.v1.1.1.zip
+gnome-extensions install --force dock-right-click-menu@jod.local.v1.2.0.zip
 ```
 
 GNOME Shell only discovers new extensions at start-up, and on Wayland it cannot be restarted in
