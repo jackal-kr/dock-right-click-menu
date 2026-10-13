@@ -16,7 +16,8 @@ import {parseItems, resolveItems} from './lib/menuModel.js';
  *
  *   lib/dockClick.js  detects the click
  *   lib/menuModel.js  turns the stored setting into menu entries
- *   lib/dockMenu.js   shows the popup menu
+ *   lib/dockMenu.js   shows the popup menu, launches apps
+ *   lib/adminLaunch.js  runs an app as administrator (Ctrl held; see adminCommand.js)
  */
 export default class DockRightClickMenuExtension extends Extension {
     enable() {
@@ -49,6 +50,7 @@ export default class DockRightClickMenuExtension extends Extension {
             // An empty menu would be invisible, so always offer the way to configure it.
             showConfigure: entries.length === 0 || this._settings.get_boolean(SettingsKey.SHOW_CONFIGURE_ENTRY),
             launchMode: this._settings.get_enum(SettingsKey.LAUNCH_MODE),
+            adminMode: this._settings.get_boolean(SettingsKey.ADMIN_MODE),
         });
     }
 }

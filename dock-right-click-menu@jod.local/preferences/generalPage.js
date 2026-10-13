@@ -41,5 +41,18 @@ export const GeneralPage = GObject.registerClass({
         });
         settings.bind(SettingsKey.SHOW_CONFIGURE_ENTRY, configureRow, 'active', Gio.SettingsBindFlags.DEFAULT);
         group.add(configureRow);
+
+        const adminGroup = new Adw.PreferencesGroup({
+            title: _('Administrator mode'),
+            description: _('Terminal apps open with sudo, Files opens with administrator rights, other apps run as root through pkexec. Flatpak and Snap apps may not work.'),
+        });
+        this.add(adminGroup);
+
+        const adminRow = new Adw.SwitchRow({
+            title: _('Enable administrator mode'),
+            subtitle: _('Hold Ctrl while choosing an app to run it as administrator. A password prompt always appears.'),
+        });
+        settings.bind(SettingsKey.ADMIN_MODE, adminRow, 'active', Gio.SettingsBindFlags.DEFAULT);
+        adminGroup.add(adminRow);
     }
 });

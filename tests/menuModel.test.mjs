@@ -42,6 +42,23 @@ describe('sanitizeItems', () => {
         assert.deepEqual(sanitizeItems([{type: 'submenu'}]), [sub('', [])]);
     });
 
+    it('keeps admin only when it is exactly true', () => {
+        const raw = [
+            {type: 'app', id: 'a.desktop', admin: true},
+            {type: 'app', id: 'b.desktop', admin: false},
+            {type: 'app', id: 'c.desktop', admin: 'yes'},
+            {type: 'app', id: 'd.desktop', admin: 1},
+        ];
+        assert.deepEqual(sanitizeItems(raw), [
+            {type: 'app', id: 'a.desktop', admin: true}, app('b.desktop'), app('c.desktop'), app('d.desktop'),
+        ]);
+    });
+
+    it('keeps admin inside submenus', () => {
+        const raw = [sub('S', [{type: 'app', id: 'a.desktop', admin: true}])];
+        assert.deepEqual(sanitizeItems(raw), raw);
+    });
+
     it('strips unknown properties', () => {
         assert.deepEqual(sanitizeItems([{type: 'app', id: 'a.desktop', evil: true}]), [app('a.desktop')]);
     });
@@ -53,7 +70,13 @@ describe('resolveItems', () => {
 
     it('drops apps that are not installed', () => {
         const out = resolveItems([app('a.desktop'), app('gone.desktop')], lookup);
-        assert.deepEqual(out, [{type: 'app', app: {id: 'a.desktop'}}]);
+        assert.deepEqual(out, [{type: 'app', app: {id: 'a.desktop'}, admin: false}]);
+    });
+
+    it('passes the admin flag through, also inside submenus', () => {
+        const out = resolveItems([{type: 'app', id: 'a.desktop', admin: true}, sub('S', [{type: 'app', id: 'b.desktop', admin: true}, app('c.desktop')])], lookup);
+        assert.equal(out[0].admin, true);
+        assert.deepEqual(out[1].children.map(e => e.admin), [true, false]);
     });
 
     it('removes leading, trailing and repeated separators', () => {

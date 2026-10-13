@@ -19,6 +19,8 @@ Right-clicking an app icon, the *Show Apps* button or the trash still opens the 
 - Separators, and submenus one level deep.
 - Graphical editor: searchable app picker, reorder, remove, rename submenus.
 - Opens a new window, or focuses the app if it is already running (your choice).
+- Optional **administrator mode**: hold <kbd>Ctrl</kbd> while choosing an app to run it as administrator
+  (off by default, see [Administrator mode](#administrator-mode)).
 - Edits apply immediately; no restart needed.
 - Works with the dock on any screen edge. Handles apps that were uninstalled since you added them.
 - Translations: Polish, Ukrainian (see [Translating](#translating)).
@@ -38,7 +40,7 @@ Other docks (Dash to Panel, Dock from Dash, ...) are not detected.
 ### From a release zip
 
 ```bash
-gnome-extensions install --force dock-right-click-menu@jod.local.v1.2.0.zip
+gnome-extensions install --force dock-right-click-menu@jod.local.v1.3.0.zip
 ```
 
 GNOME Shell only discovers new extensions at start-up, and on Wayland it cannot be restarted in
@@ -71,6 +73,32 @@ make install        # builds dist/*.zip and runs gnome-extensions install
 While the menu is empty, right-click shows a single *Configure menu…* entry. The
 **General** page can keep that entry visible permanently and sets the launch behaviour.
 
+## Administrator mode
+
+Off by default. To use it:
+
+1. **General ▸ Administrator mode ▸ Enable administrator mode.**
+2. On the **Menu** page a shield button appears on every app row. Switch it on for the apps you
+   want to be able to run as administrator (*Allow running as administrator*).
+3. Open the menu and **hold <kbd>Ctrl</kbd>**: the flagged entries change to *Name (as admin)*.
+   Choose one (click, or <kbd>Ctrl</kbd>+<kbd>Enter</kbd>) while Ctrl is held. Without Ctrl the app
+   starts normally.
+
+How each kind of app is started:
+
+| App | What happens |
+|---|---|
+| Terminal emulator (GNOME Terminal, …) | Opens on a root shell (`sudo -i`); the password prompt is in the terminal |
+| Command-line app (`Terminal=true`, e.g. htop) | Runs with `sudo` in your default terminal |
+| Files | Opens `admin:///` with administrator rights; Files itself is not run as root |
+| Any other graphical app | Runs through `pkexec` with your display variables |
+
+A password prompt always appears (the polkit dialog or `sudo` in the terminal). The extension never
+sees or stores the password, never configures `NOPASSWD`, and starts the command from an argument
+list, not through a shell. Graphical apps running as root on Wayland are discouraged by GNOME:
+some refuse to start, and Flatpak and Snap apps usually do not work. If an app cannot be run as
+administrator, a notification says so.
+
 ## Configuration
 
 Everything is editable in the preferences window. The settings live in the schema
@@ -81,6 +109,7 @@ Everything is editable in the preferences window. The settings live in the schem
 | `items` | string (JSON) | `[]` | The menu definition, see below |
 | `launch-mode` | enum | `new-window` | `new-window` or `focus-or-launch` |
 | `show-settings-item` | boolean | `false` | Append *Configure menu…* to the menu |
+| `admin-mode` | boolean | `false` | Enable [administrator mode](#administrator-mode) |
 
 `items` holds a JSON list, which you can also edit with `dconf-editor`:
 
@@ -89,14 +118,15 @@ Everything is editable in the preferences window. The settings live in the schem
   {"type": "app", "id": "org.gnome.Terminal.desktop"},
   {"type": "separator"},
   {"type": "submenu", "title": "Office", "children": [
-    {"type": "app", "id": "libreoffice-writer.desktop"},
+    {"type": "app", "id": "libreoffice-writer.desktop", "admin": true},
     {"type": "separator"},
     {"type": "app", "id": "libreoffice-calc.desktop"}
   ]}
 ]
 ```
 
-A submenu may contain only apps and separators. Invalid entries are ignored.
+A submenu may contain only apps and separators. `"admin": true` marks an app as allowed to run as
+administrator (only has an effect while `admin-mode` is on). Invalid entries are ignored.
 
 ## How it works
 
@@ -111,6 +141,8 @@ release, a `PopupMenu` anchored to the dock's edge is shown.
 | `lib/dockClick.js` | Detects a right-click on empty dock space |
 | `lib/dockMenu.js` | Builds and shows the popup menu, launches apps |
 | `lib/menuModel.js` | Parses, validates and resolves the stored menu. No GNOME imports, unit tested |
+| `lib/adminCommand.js` | Builds the command that runs an app as administrator. No GNOME imports, unit tested |
+| `lib/adminLaunch.js` | Gathers the inputs for it (desktop entry, default terminal, display variables) and starts the process |
 | `lib/constants.js` | Settings keys and enums shared with the preferences |
 | `prefs.js`, `preferences/*.js` | Preferences window: Menu, General and About pages, app chooser |
 
@@ -135,6 +167,11 @@ Main.layoutManager.uiGroup.get_children().filter(a => /dock|dash/i.test(a.name))
 
 It should include `dashtodockContainer`. If it does not, open an issue with the output.
 
+**An app does not start as administrator.** Not every app supports running as root on Wayland.
+Try it from a terminal: `pkexec env WAYLAND_DISPLAY=$WAYLAND_DISPLAY XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR <command>`.
+Flatpak and Snap apps are not supported in this mode. The *as admin* label only appears for apps
+you switched on in the preferences, and only while administrator mode is enabled.
+
 **My code changes are not picked up.** GNOME Shell caches extension modules until the next
 login. Use `make nested` to test changes without logging out (needs the `mutter-dev-bin` package).
 
@@ -148,7 +185,7 @@ dock-right-click-menu/
 ├── dock-right-click-menu@jod.local/   the extension (this folder is what gets zipped)
 │   ├── metadata.json
 │   ├── extension.js, prefs.js
-│   ├── lib/                           shell-side code and the shared data model
+│   ├── lib/                           shell-side code, the data model and the admin command builder
 │   ├── preferences/                   preferences pages
 │   ├── schemas/                       GSettings schema
 │   └── locale/                        compiled translations (generated, not tracked)
@@ -208,7 +245,8 @@ The Polish and Ukrainian catalogs are a first draft; corrections are welcome.
 
 ## Releasing
 
-1. Update `CHANGELOG.md`; bump `version` and `version-name` in `metadata.json`.
+1. Update `CHANGELOG.md`; bump `version-name` in `metadata.json` and `version` in `package.json`
+   (`metadata.json` has no `version` key: extensions.gnome.org sets it).
 2. `make test lint zip`.
 3. Upload `dist/*.zip` to <https://extensions.gnome.org/upload/>.
 

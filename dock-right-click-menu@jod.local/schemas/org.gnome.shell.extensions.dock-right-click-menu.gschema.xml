@@ -10,7 +10,7 @@
     <key type="s" name="items">
       <default>'[]'</default>
       <summary>Menu definition</summary>
-      <description>JSON array describing the menu. Entries: {"type":"app","id":"org.gnome.Nautilus.desktop"}, {"type":"separator"} and {"type":"submenu","title":"Name","children":[...]}. A submenu can only contain apps and separators. Edited through the extension preferences.</description>
+      <description>JSON array describing the menu. Entries: {"type":"app","id":"org.gnome.Nautilus.desktop","admin":true}, {"type":"separator"} and {"type":"submenu","title":"Name","children":[...]}. A submenu can only contain apps and separators. Edited through the extension preferences.</description>
     </key>
     <key name="launch-mode" enum="org.gnome.shell.extensions.dock-right-click-menu.launch-mode">
       <default>"new-window"</default>
@@ -21,6 +21,11 @@
       <default>false</default>
       <summary>Show the "Configure menu" entry</summary>
       <description>Append an entry that opens the extension preferences. It is always shown while the menu is empty.</description>
+    </key>
+    <key type="b" name="admin-mode">
+      <default>false</default>
+      <summary>Enable administrator mode</summary>
+      <description>Allow apps marked in the menu editor to be run as administrator by holding Ctrl while choosing them. Authentication is always requested through polkit or sudo.</description>
     </key>
   </schema>
 </schemalist>

@@ -30,6 +30,7 @@ export const MenuPage = GObject.registerClass({
         this._items = parseItems(settings.get_string(SettingsKey.ITEMS));
         this._widgets = [];
         this._expanded = new Set(); // submenu items shown expanded, kept across rebuilds
+        this._adminMode = settings.get_boolean(SettingsKey.ADMIN_MODE);
 
         this._group = new Adw.PreferencesGroup({
             title: _('Menu items'),
@@ -37,6 +38,13 @@ export const MenuPage = GObject.registerClass({
         });
         this.add(this._group);
         this._rebuild();
+
+        // The per-app "administrator" switches only exist while administrator mode is on.
+        const handlerId = settings.connect(`changed::${SettingsKey.ADMIN_MODE}`, () => {
+            this._adminMode = settings.get_boolean(SettingsKey.ADMIN_MODE);
+            this._rebuild();
+        });
+        this.connect('unrealize', () => settings.disconnect(handlerId));
     }
 
     _save() {
@@ -77,13 +85,37 @@ export const MenuPage = GObject.registerClass({
         const info = lookupDesktopApp(item.id);
         const row = new Adw.ActionRow({
             title: info ? info.get_display_name() : item.id,
-            subtitle: info ? '' : _('Not installed'),
             use_markup: false,
         });
+        const updateSubtitle = () => {
+            if (!info)
+                row.subtitle = _('Not installed');
+            else
+                row.subtitle = this._adminMode && item.admin ? _('Hold Ctrl in the menu to run this app as administrator') : '';
+        };
+        updateSubtitle();
         row.add_prefix(new Gtk.Image({
             gicon: info?.get_icon() ?? new Gio.ThemedIcon({name: 'application-x-executable'}),
             pixel_size: 32,
         }));
+        if (this._adminMode && info) {
+            const toggle = new Gtk.ToggleButton({
+                icon_name: 'security-high-symbolic',
+                tooltip_text: _('Allow running as administrator'),
+                active: item.admin === true,
+                css_classes: ['flat'],
+                valign: Gtk.Align.CENTER,
+            });
+            toggle.connect('toggled', () => {
+                if (toggle.active)
+                    item.admin = true;
+                else
+                    delete item.admin;
+                updateSubtitle();
+                this._save();
+            });
+            row.add_suffix(toggle);
+        }
         row.add_suffix(this._buildControls(list, index));
         return row;
     }

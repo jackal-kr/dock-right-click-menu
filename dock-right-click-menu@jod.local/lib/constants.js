@@ -11,6 +11,7 @@ export const SettingsKey = Object.freeze({
     ITEMS: 'items',
     LAUNCH_MODE: 'launch-mode',
     SHOW_CONFIGURE_ENTRY: 'show-settings-item',
+    ADMIN_MODE: 'admin-mode',
 });
 
 /** Mirrors the `launch-mode` enum of the schema (the order matters). */

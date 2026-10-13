@@ -1,6 +1,6 @@
 {
   "name": "dock-right-click-menu",
-  "version": "1.1.1",
+  "version": "1.3.0",
   "private": true,
   "description": "Development tooling for the Dock Right-Click Menu GNOME Shell extension (not shipped in the extension package).",
   "license": "GPL-3.0-or-later",

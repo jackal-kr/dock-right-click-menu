@@ -6,11 +6,12 @@
  *
  * The menu is stored in GSettings as a JSON string holding a list of items:
  *
- *   {type: 'app',       id: 'org.gnome.Nautilus.desktop'}
+ *   {type: 'app',       id: 'org.gnome.Nautilus.desktop', admin: true}
  *   {type: 'separator'}
  *   {type: 'submenu',   title: 'Office', children: [<app | separator>, ...]}
  *
- * Submenus may only be nested one level deep. This module has no `gi://`
+ * `admin: true` (optional, only ever `true`) lets the app be run as administrator
+ * from the menu by holding Ctrl. Submenus may only be nested one level deep. This module has no `gi://`
  * imports on purpose, so it can be unit tested with plain Node.js
  * (see tests/menuModel.test.mjs).
  */
@@ -43,8 +44,12 @@ export function sanitizeItems(raw, nested = false) {
 
         switch (item.type) {
         case ItemType.APP:
-            if (typeof item.id === 'string' && item.id !== '')
-                out.push({type: ItemType.APP, id: item.id});
+            if (typeof item.id === 'string' && item.id !== '') {
+                const app = {type: ItemType.APP, id: item.id};
+                if (item.admin === true)
+                    app.admin = true;
+                out.push(app);
+            }
             break;
         case ItemType.SEPARATOR:
             out.push({type: ItemType.SEPARATOR});
@@ -114,7 +119,7 @@ export function moveItem(list, index, delta) {
  * @param {(id: string) => ?object} lookupApp Returns the app for a desktop
  *     file id, or a falsy value when it is not installed.
  * @param {boolean} [nested] True while resolving the children of a submenu.
- * @returns {object[]} Entries: {type:'app', app} | {type:'separator'} |
+ * @returns {object[]} Entries: {type:'app', app, admin} | {type:'separator'} |
  *     {type:'submenu', title, children}.
  */
 export function resolveItems(items, lookupApp, nested = false) {
@@ -126,7 +131,7 @@ export function resolveItems(items, lookupApp, nested = false) {
         } else if (item.type === ItemType.APP) {
             const app = lookupApp(item.id);
             if (app)
-                out.push({type: ItemType.APP, app});
+                out.push({type: ItemType.APP, app, admin: item.admin === true});
         } else if (item.type === ItemType.SUBMENU && !nested) {
             const children = resolveItems(item.children ?? [], lookupApp, true);
             if (children.length > 0)

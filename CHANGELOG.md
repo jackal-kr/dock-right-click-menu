@@ -2,11 +2,25 @@
 
 All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the
-project uses [Semantic Versioning](https://semver.org/). `metadata.json` carries both the
-integer `version` (bumped for every release uploaded to extensions.gnome.org) and the
-human-readable `version-name`.
+project uses [Semantic Versioning](https://semver.org/). `metadata.json` carries the
+human-readable `version-name`; the integer `version` is set by extensions.gnome.org on upload.
 
 ## [Unreleased]
+
+## [1.3.0] - 2026-10-13
+
+### Added
+- **Administrator mode** (off by default): hold <kbd>Ctrl</kbd> while choosing an app in the menu to
+  run it as administrator. Flagged entries show *Name (as admin)* while Ctrl is held.
+  Terminal emulators open on a `sudo -i` shell, command-line apps run with `sudo` in the default
+  terminal, Files opens `admin:///`, other apps run through `pkexec`. A password prompt always appears.
+- *Enable administrator mode* switch (General page) and an *Allow running as administrator* shield
+  button per app (Menu page); `admin-mode` setting and an optional `"admin": true` on app items.
+- Polish and Ukrainian translations of the new strings; unit tests for the command builder.
+
+### Changed
+- `metadata.json` no longer has the deprecated `version` key (extensions.gnome.org sets it) and its
+  description mentions administrator mode.
 
 ## [1.2.0] - 2026-10-13
 
