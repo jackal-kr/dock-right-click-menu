@@ -14,9 +14,10 @@ JS_FILES    := $(wildcard $(EXT_DIR)/*.js $(EXT_DIR)/lib/*.js $(EXT_DIR)/prefere
 SCHEMA_DIR  := $(EXT_DIR)/schemas
 INSTALL_DIR := $(HOME)/.local/share/gnome-shell/extensions/$(UUID)
 
-.PHONY: help build pot test lint zip install link unlink uninstall nested clean
+.PHONY: help doctor build pot test lint zip install link unlink uninstall nested clean
 
 help:
+	@echo "make doctor     check that this machine can build, test and run the extension"
 	@echo "make build      compile the GSettings schema and the translations"
 	@echo "make test       run the unit tests (needs Node.js)"
 	@echo "make lint       run ESLint (needs 'npm install' once)"
@@ -28,6 +29,9 @@ help:
 	@echo "make uninstall  remove the installed extension"
 	@echo "make nested     try the installed extension in a nested GNOME Shell window"
 	@echo "make clean      remove build output"
+
+doctor:
+	@./scripts/check-env.sh
 
 build: $(SCHEMA_DIR)/gschemas.compiled $(MO_FILES)
 

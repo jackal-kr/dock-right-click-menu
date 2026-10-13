@@ -136,7 +136,7 @@ Main.layoutManager.uiGroup.get_children().filter(a => /dock|dash/i.test(a.name))
 It should include `dashtodockContainer`. If it does not, open an issue with the output.
 
 **My code changes are not picked up.** GNOME Shell caches extension modules until the next
-login. Use `make nested` to test changes without logging out.
+login. Use `make nested` to test changes without logging out (needs the `mutter-dev-bin` package).
 
 **"See Details" in the Extensions app shows an error.** That page fetches data from
 extensions.gnome.org and has nothing to show for an extension that is not published there.
@@ -153,7 +153,8 @@ dock-right-click-menu/
 │   ├── schemas/                       GSettings schema
 │   └── locale/                        compiled translations (generated, not tracked)
 ├── po/                                translation template and catalogs
-├── docs/                              screenshot used by the README
+├── docs/                              DEVELOPMENT.md guide, screenshot used by the README
+├── scripts/check-env.sh               `make doctor`
 ├── tests/                             Node.js unit tests for lib/menuModel.js
 ├── .vscode/                           VS Code settings, tasks and recommended extensions
 ├── .github/workflows/ci.yml           lint, tests and zip build on every push
@@ -161,19 +162,23 @@ dock-right-click-menu/
 ├── README.md, CHANGELOG.md, LICENSE
 ```
 
+**Full setup guide (packages, VS Code, nested shell, checklist, troubleshooting):
+[docs/DEVELOPMENT.md](docs/DEVELOPMENT.md).** The short version:
+
 ```bash
-make test         # unit tests, plain Node.js, no GNOME needed
+sudo apt install git make zip gettext libglib2.0-bin nodejs npm gnome-shell mutter-dev-bin dbus-daemon
 npm install       # once, for ESLint
+make doctor       # checks the machine, tells you what is missing
+make test         # unit tests, plain Node.js, no GNOME needed
 make lint
-make nested       # try the installed extension in a nested shell (needs mutter-devkit)
+make link         # once; then log out and in once
+make nested       # throw-away GNOME Shell window that loads your current code
 ```
 
-Fast loop: `make link` symlinks the working tree into
-`~/.local/share/gnome-shell/extensions/`, so edits are used the next time the shell starts
-(`make nested` starts a throw-away shell, no logout needed). The repository ships a VS Code
-workspace: open the folder, accept the recommended extensions, and run the tasks from
-*Terminal ▸ Run Task…* (Test, Lint, Build zip, Link for development, Install zip, Nested shell, Shell log, Update
-translations); ESLint fixes on save.
+Edits to `extension.js` and `lib/` are picked up each time `make nested` is started (no logout).
+The repository ships a VS Code workspace: open the folder, accept the recommended extensions,
+and run the tasks from *Terminal ▸ Run Task…* (Check environment, Test, Lint, Build zip, Link for
+development, Install zip, Nested shell, Shell log, Update translations). ESLint fixes on save, and
 `npm install` also fetches the GNOME Shell type definitions used for IntelliSense.
 
 Guidelines used here, in line with the
