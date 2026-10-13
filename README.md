@@ -19,8 +19,8 @@ Right-clicking an app icon, the *Show Apps* button or the trash still opens the 
 - Separators, and submenus one level deep.
 - Graphical editor: searchable app picker, reorder, remove, rename submenus.
 - Opens a new window, or focuses the app if it is already running (your choice).
-- Optional **administrator mode**: hold <kbd>Ctrl</kbd> while choosing an app to run it as administrator
-  (off by default, see [Administrator mode](#administrator-mode)).
+- Optional **run as administrator**, app by app: hold <kbd>Ctrl</kbd> while choosing an app you flagged
+  (off for every app by default, see [Run as administrator](#run-as-administrator)).
 - Edits apply immediately; no restart needed.
 - Works with the dock on any screen edge. Handles apps that were uninstalled since you added them.
 - Translations: Polish, Ukrainian (see [Translating](#translating)).
@@ -73,16 +73,15 @@ make install        # builds dist/*.zip and runs gnome-extensions install
 While the menu is empty, right-click shows a single *Configure menu…* entry. The
 **General** page can keep that entry visible permanently and sets the launch behaviour.
 
-## Administrator mode
+## Run as administrator
 
-Off by default. To use it:
+You decide app by app. Every app is off by default, so it makes sense for Terminal or Files and
+not for Settings.
 
-1. **General ▸ Administrator mode ▸ Enable administrator mode.**
-2. On the **Menu** page a shield button appears on every app row. Switch it on for the apps you
-   want to be able to run as administrator (*Allow running as administrator*).
-3. Open the menu and **hold <kbd>Ctrl</kbd>**: the flagged entries change to *Name (as admin)*.
-   Choose one (click, or <kbd>Ctrl</kbd>+<kbd>Enter</kbd>) while Ctrl is held. Without Ctrl the app
-   starts normally.
+1. On the **Menu** page, switch on the shield button of an app (*Allow running as administrator*).
+2. Open the menu and **hold <kbd>Ctrl</kbd>**: the flagged entries change to *Name (as admin)*.
+   Choose one (click, or <kbd>Ctrl</kbd>+<kbd>Enter</kbd>) while Ctrl is held. Without Ctrl, and for
+   apps you did not flag, the app starts normally.
 
 How each kind of app is started:
 
@@ -109,7 +108,6 @@ Everything is editable in the preferences window. The settings live in the schem
 | `items` | string (JSON) | `[]` | The menu definition, see below |
 | `launch-mode` | enum | `new-window` | `new-window` or `focus-or-launch` |
 | `show-settings-item` | boolean | `false` | Append *Configure menu…* to the menu |
-| `admin-mode` | boolean | `false` | Enable [administrator mode](#administrator-mode) |
 
 `items` holds a JSON list, which you can also edit with `dconf-editor`:
 
@@ -126,7 +124,7 @@ Everything is editable in the preferences window. The settings live in the schem
 ```
 
 A submenu may contain only apps and separators. `"admin": true` marks an app as allowed to run as
-administrator (only has an effect while `admin-mode` is on). Invalid entries are ignored.
+administrator (see [Run as administrator](#run-as-administrator)). Invalid entries are ignored.
 
 ## How it works
 
@@ -170,7 +168,7 @@ It should include `dashtodockContainer`. If it does not, open an issue with the 
 **An app does not start as administrator.** Not every app supports running as root on Wayland.
 Try it from a terminal: `pkexec env WAYLAND_DISPLAY=$WAYLAND_DISPLAY XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR <command>`.
 Flatpak and Snap apps are not supported in this mode. The *as admin* label only appears for apps
-you switched on in the preferences, and only while administrator mode is enabled.
+you switched on with the shield button in the preferences.
 
 **My code changes are not picked up.** GNOME Shell caches extension modules until the next
 login. Use `make nested` to test changes without logging out (needs the `mutter-dev-bin` package).

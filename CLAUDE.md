@@ -11,7 +11,7 @@ this file for working on the code.
   - `lib/dockClick.js` click detection, `lib/dockMenu.js` popup menu, `lib/menuModel.js` data model
     (pure JS, no `gi://`, unit tested), `lib/constants.js` shared keys.
   - `lib/adminCommand.js` (pure, unit tested) builds the command that runs an app as administrator;
-    `lib/adminLaunch.js` gathers the inputs and spawns it (Ctrl-held feature, `admin-mode` setting).
+    `lib/adminLaunch.js` gathers the inputs and spawns it (Ctrl-held feature; the per-app `admin` flag in `items` is the only switch).
   - `preferences/` one file per preferences page, plus the app chooser.
   - `schemas/` GSettings schema. `locale/` is generated (git-ignored).
 - `po/` translations (`pl`, `uk`). `tests/` Node tests for `lib/menuModel.js`.
@@ -32,9 +32,9 @@ this file for working on the code.
 - Do not trust `event.get_source()` on stage events; use `global.stage.get_event_actor(event)`.
 - User-visible strings go through `_()`; run `make pot` and update `po/*.po` when they change.
 - Keep the stored `items` JSON format backward compatible (it is user data).
-- Administrator mode: never use bare `sudo` without a terminal, never run through a shell, never store
+- Run as administrator: never use bare `sudo` without a terminal, never run through a shell, never store
   or pass a password; privileged commands go through `pkexec` (extensions.gnome.org review rule) or
-  `sudo` inside a terminal. Keep it opt-in (`admin-mode` off by default, per-app `admin` flag).
+  `sudo` inside a terminal. Keep it opt-in: off for every app unless its `admin` flag is set.
 - Release: update `CHANGELOG.md`, bump `version-name` in `metadata.json` and `version` in
   `package.json` (no `version` key in `metadata.json`), run `make test lint zip`.
 - Style: 4 spaces, single quotes, semicolons (enforced by ESLint and `.editorconfig`).

@@ -10,17 +10,17 @@ human-readable `version-name`; the integer `version` is set by extensions.gnome.
 ## [1.3.0] - 2026-10-13
 
 ### Added
-- **Administrator mode** (off by default): hold <kbd>Ctrl</kbd> while choosing an app in the menu to
-  run it as administrator. Flagged entries show *Name (as admin)* while Ctrl is held.
+- **Run as administrator**, chosen app by app (off for every app by default): hold <kbd>Ctrl</kbd>
+  while choosing a flagged app in the menu. Flagged entries show *Name (as admin)* while Ctrl is held.
   Terminal emulators open on a `sudo -i` shell, command-line apps run with `sudo` in the default
   terminal, Files opens `admin:///`, other apps run through `pkexec`. A password prompt always appears.
-- *Enable administrator mode* switch (General page) and an *Allow running as administrator* shield
-  button per app (Menu page); `admin-mode` setting and an optional `"admin": true` on app items.
+- An *Allow running as administrator* shield button on every app row (Menu page), stored as an
+  optional `"admin": true` on the app item. There is no global switch.
 - Polish and Ukrainian translations of the new strings; unit tests for the command builder.
 
 ### Changed
 - `metadata.json` no longer has the deprecated `version` key (extensions.gnome.org sets it) and its
-  description mentions administrator mode.
+  description mentions the per-app administrator option.
 
 ## [1.2.0] - 2026-10-13
 

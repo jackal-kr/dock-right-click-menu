@@ -16,19 +16,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: dock-right-click-menu@jod.local/lib/dockMenu.js:66
+#: dock-right-click-menu@jod.local/lib/dockMenu.js:65
 msgid "Configure menu…"
 msgstr "Konfiguruj menu…"
 
-#: dock-right-click-menu@jod.local/lib/dockMenu.js:145
+#: dock-right-click-menu@jod.local/lib/dockMenu.js:144
 msgid "%s (as admin)"
 msgstr "%s (jako admin)"
 
-#: dock-right-click-menu@jod.local/lib/dockMenu.js:167
+#: dock-right-click-menu@jod.local/lib/dockMenu.js:166
 msgid "Folder"
 msgstr "Folder"
 
-#: dock-right-click-menu@jod.local/lib/dockMenu.js:178
+#: dock-right-click-menu@jod.local/lib/dockMenu.js:177
 msgid "Could not run as administrator"
 msgstr "Nie udało się uruchomić jako administrator"
 
@@ -104,82 +104,66 @@ msgstr "Pokaż pozycję „Konfiguruj menu…”"
 msgid "Always shown while the menu is empty"
 msgstr "Zawsze widoczna, gdy menu jest puste"
 
-#: dock-right-click-menu@jod.local/preferences/generalPage.js:46
-msgid "Administrator mode"
-msgstr "Tryb administratora"
-
-#: dock-right-click-menu@jod.local/preferences/generalPage.js:47
-msgid "Terminal apps open with sudo, Files opens with administrator rights, other apps run as root through pkexec. Flatpak and Snap apps may not work."
-msgstr "Aplikacje terminalowe otwierają się z sudo, Pliki z uprawnieniami administratora, pozostałe aplikacje działają jako root przez pkexec. Aplikacje Flatpak i Snap mogą nie działać."
-
-#: dock-right-click-menu@jod.local/preferences/generalPage.js:52
-msgid "Enable administrator mode"
-msgstr "Włącz tryb administratora"
-
-#: dock-right-click-menu@jod.local/preferences/generalPage.js:53
-msgid "Hold Ctrl while choosing an app to run it as administrator. A password prompt always appears."
-msgstr "Przytrzymaj Ctrl, wybierając aplikację, aby uruchomić ją jako administrator. Zawsze pojawi się prośba o hasło."
-
 #: dock-right-click-menu@jod.local/preferences/menuPage.js:27
 msgid "Menu"
 msgstr "Menu"
 
-#: dock-right-click-menu@jod.local/preferences/menuPage.js:36
+#: dock-right-click-menu@jod.local/preferences/menuPage.js:35
 msgid "Menu items"
 msgstr "Elementy menu"
 
-#: dock-right-click-menu@jod.local/preferences/menuPage.js:37
-msgid "Shown when you right-click empty space on the dock. A submenu can hold apps and separators."
-msgstr "Wyświetlane po kliknięciu prawym przyciskiem myszy w puste miejsce docka. Podmenu może zawierać aplikacje i separatory."
+#: dock-right-click-menu@jod.local/preferences/menuPage.js:36
+msgid "Shown when you right-click empty space on the dock. A submenu can hold apps and separators. The shield button lets you run an app as administrator by holding Ctrl while choosing it."
+msgstr "Wyświetlane po kliknięciu prawym przyciskiem myszy w puste miejsce docka. Podmenu może zawierać aplikacje i separatory. Przycisk tarczy pozwala uruchomić aplikację jako administrator po przytrzymaniu Ctrl podczas jej wybierania."
 
-#: dock-right-click-menu@jod.local/preferences/menuPage.js:92
+#: dock-right-click-menu@jod.local/preferences/menuPage.js:84
 msgid "Not installed"
 msgstr "Nie zainstalowano"
 
-#: dock-right-click-menu@jod.local/preferences/menuPage.js:94
+#: dock-right-click-menu@jod.local/preferences/menuPage.js:86
 msgid "Hold Ctrl in the menu to run this app as administrator"
 msgstr "Przytrzymaj Ctrl w menu, aby uruchomić tę aplikację jako administrator"
 
-#: dock-right-click-menu@jod.local/preferences/menuPage.js:104
+#: dock-right-click-menu@jod.local/preferences/menuPage.js:96
 msgid "Allow running as administrator"
 msgstr "Zezwól na uruchamianie jako administrator"
 
-#: dock-right-click-menu@jod.local/preferences/menuPage.js:124
+#: dock-right-click-menu@jod.local/preferences/menuPage.js:116
 msgid "— Separator —"
 msgstr "— Separator —"
 
-#: dock-right-click-menu@jod.local/preferences/menuPage.js:132 dock-right-click-menu@jod.local/preferences/menuPage.js:148
+#: dock-right-click-menu@jod.local/preferences/menuPage.js:124 dock-right-click-menu@jod.local/preferences/menuPage.js:140
 msgid "Submenu"
 msgstr "Podmenu"
 
-#: dock-right-click-menu@jod.local/preferences/menuPage.js:145
+#: dock-right-click-menu@jod.local/preferences/menuPage.js:137
 msgid "Submenu title"
 msgstr "Tytuł podmenu"
 
-#: dock-right-click-menu@jod.local/preferences/menuPage.js:177
+#: dock-right-click-menu@jod.local/preferences/menuPage.js:169
 msgid "Move up"
 msgstr "Przesuń w górę"
 
-#: dock-right-click-menu@jod.local/preferences/menuPage.js:178
+#: dock-right-click-menu@jod.local/preferences/menuPage.js:170
 msgid "Move down"
 msgstr "Przesuń w dół"
 
-#: dock-right-click-menu@jod.local/preferences/menuPage.js:179
+#: dock-right-click-menu@jod.local/preferences/menuPage.js:171
 msgid "Remove"
 msgstr "Usuń"
 
-#: dock-right-click-menu@jod.local/preferences/menuPage.js:207
+#: dock-right-click-menu@jod.local/preferences/menuPage.js:199
 msgid "Add application"
 msgstr "Dodaj aplikację"
 
-#: dock-right-click-menu@jod.local/preferences/menuPage.js:210
+#: dock-right-click-menu@jod.local/preferences/menuPage.js:202
 msgid "Add separator"
 msgstr "Dodaj separator"
 
-#: dock-right-click-menu@jod.local/preferences/menuPage.js:212
+#: dock-right-click-menu@jod.local/preferences/menuPage.js:204
 msgid "Add submenu"
 msgstr "Dodaj podmenu"
 
-#: dock-right-click-menu@jod.local/preferences/menuPage.js:213
+#: dock-right-click-menu@jod.local/preferences/menuPage.js:205
 msgid "New submenu"
 msgstr "Nowe podmenu"

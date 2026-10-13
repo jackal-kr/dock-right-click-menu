@@ -137,9 +137,8 @@ Manual checklist in the nested shell:
 4. Launch an app from the menu with both *Open a new window* and *Focus the app* behaviours.
 5. Change the dock position (Settings ▸ Ubuntu Desktop ▸ Dock ▸ Position): the menu opens on the
    correct side.
-6. Administrator mode (test this in your **real session**, not the nested shell, which has its own
-   polkit agent): enable it on the General page, switch the shield on for Terminal, Files and one
-   other app, open the menu, hold Ctrl and check that the labels change to *(as admin)* and revert
+6. Run as administrator (test this in your **real session**, not the nested shell, which has its own
+   polkit agent): switch the shield on (Menu page) for Terminal, Files and one other app, open the menu, hold Ctrl and check that the labels change to *(as admin)* and revert
    when Ctrl is released. Choose each entry with Ctrl held: a root terminal with a `sudo` prompt,
    Files on the administrator location, the other app after a polkit password dialog. Without Ctrl
    the same entries must start normally. Cancel the dialog: nothing runs, no error.
