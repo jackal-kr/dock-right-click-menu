@@ -24,33 +24,37 @@ msgstr "Налаштувати меню…"
 msgid "Folder"
 msgstr "Тека"
 
-#: dock-right-click-menu@jod.local/preferences/aboutPage.js:15
+#: dock-right-click-menu@jod.local/preferences/aboutPage.js:18
 msgid "About"
 msgstr "Про розширення"
 
-#: dock-right-click-menu@jod.local/preferences/aboutPage.js:21
+#: dock-right-click-menu@jod.local/preferences/aboutPage.js:24
+msgid "Developer"
+msgstr "Розробник"
+
+#: dock-right-click-menu@jod.local/preferences/aboutPage.js:30 dock-right-click-menu@jod.local/preferences/aboutPage.js:55
+msgid "Open"
+msgstr "Відкрити"
+
+#: dock-right-click-menu@jod.local/preferences/aboutPage.js:35
 msgid "Version"
 msgstr "Версія"
 
-#: dock-right-click-menu@jod.local/preferences/aboutPage.js:25
+#: dock-right-click-menu@jod.local/preferences/aboutPage.js:39
 msgid "License"
 msgstr "Ліцензія"
 
-#: dock-right-click-menu@jod.local/preferences/aboutPage.js:29
+#: dock-right-click-menu@jod.local/preferences/aboutPage.js:43
 msgid "Compatible docks"
 msgstr "Сумісні док-панелі"
 
-#: dock-right-click-menu@jod.local/preferences/aboutPage.js:30
+#: dock-right-click-menu@jod.local/preferences/aboutPage.js:44
 msgid "Ubuntu Dock and Dash to Dock"
 msgstr "Ubuntu Dock і Dash to Dock"
 
-#: dock-right-click-menu@jod.local/preferences/aboutPage.js:35
+#: dock-right-click-menu@jod.local/preferences/aboutPage.js:49
 msgid "Homepage"
 msgstr "Домашня сторінка"
-
-#: dock-right-click-menu@jod.local/preferences/aboutPage.js:41
-msgid "Open"
-msgstr "Відкрити"
 
 #: dock-right-click-menu@jod.local/preferences/appChooser.js:19
 msgid "Choose application"

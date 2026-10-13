@@ -9,6 +9,7 @@ human-readable `version-name`.
 ## [Unreleased]
 
 ### Added
+- *Developer* row on the About page, and a screenshot in the README.
 - VS Code workspace (tasks, settings, recommended extensions), EditorConfig, `jsconfig.json` with
   GNOME Shell type definitions for IntelliSense, `CLAUDE.md` project guide.
 - `make link` / `make unlink` to run the working tree directly from GNOME Shell.

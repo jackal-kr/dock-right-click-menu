@@ -3,18 +3,13 @@
 A GNOME Shell extension that gives the **Ubuntu Dock** a right-click menu on its empty space.
 You choose the apps, and can group them with separators and one level of submenus.
 
-By default, right-clicking the gap between or below the dock icons does nothing. With this
-extension it opens a menu like this:
+<p align="center">
+  <img src="docs/screenshot.png" alt="The menu opened by a right-click on empty space of the Ubuntu Dock" width="300">
+</p>
 
-```
- Terminal
- Resources
- ───────────
- Office     ▸  LibreOffice Writer
-               LibreOffice Calc
- ───────────
- Configure menu…        (optional)
-```
+By default, right-clicking the gap between or below the dock icons does nothing. With this
+extension it opens a menu of your own apps, grouped with separators, plus an optional
+*Configure menu…* entry.
 
 Right-clicking an app icon, the *Show Apps* button or the trash still opens the dock's own menu.
 
@@ -158,6 +153,7 @@ dock-right-click-menu/
 │   ├── schemas/                       GSettings schema
 │   └── locale/                        compiled translations (generated, not tracked)
 ├── po/                                translation template and catalogs
+├── docs/                              screenshot used by the README
 ├── tests/                             Node.js unit tests for lib/menuModel.js
 ├── .vscode/                           VS Code settings, tasks and recommended extensions
 ├── .github/workflows/ci.yml           lint, tests and zip build on every push

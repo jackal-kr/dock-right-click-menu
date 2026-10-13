@@ -24,33 +24,37 @@ msgstr "Konfiguruj menu…"
 msgid "Folder"
 msgstr "Folder"
 
-#: dock-right-click-menu@jod.local/preferences/aboutPage.js:15
+#: dock-right-click-menu@jod.local/preferences/aboutPage.js:18
 msgid "About"
 msgstr "O rozszerzeniu"
 
-#: dock-right-click-menu@jod.local/preferences/aboutPage.js:21
+#: dock-right-click-menu@jod.local/preferences/aboutPage.js:24
+msgid "Developer"
+msgstr "Autor"
+
+#: dock-right-click-menu@jod.local/preferences/aboutPage.js:30 dock-right-click-menu@jod.local/preferences/aboutPage.js:55
+msgid "Open"
+msgstr "Otwórz"
+
+#: dock-right-click-menu@jod.local/preferences/aboutPage.js:35
 msgid "Version"
 msgstr "Wersja"
 
-#: dock-right-click-menu@jod.local/preferences/aboutPage.js:25
+#: dock-right-click-menu@jod.local/preferences/aboutPage.js:39
 msgid "License"
 msgstr "Licencja"
 
-#: dock-right-click-menu@jod.local/preferences/aboutPage.js:29
+#: dock-right-click-menu@jod.local/preferences/aboutPage.js:43
 msgid "Compatible docks"
 msgstr "Obsługiwane doki"
 
-#: dock-right-click-menu@jod.local/preferences/aboutPage.js:30
+#: dock-right-click-menu@jod.local/preferences/aboutPage.js:44
 msgid "Ubuntu Dock and Dash to Dock"
 msgstr "Ubuntu Dock i Dash to Dock"
 
-#: dock-right-click-menu@jod.local/preferences/aboutPage.js:35
+#: dock-right-click-menu@jod.local/preferences/aboutPage.js:49
 msgid "Homepage"
 msgstr "Strona domowa"
-
-#: dock-right-click-menu@jod.local/preferences/aboutPage.js:41
-msgid "Open"
-msgstr "Otwórz"
 
 #: dock-right-click-menu@jod.local/preferences/appChooser.js:19
 msgid "Choose application"
