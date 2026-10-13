@@ -27,7 +27,7 @@ help:
 	@echo "make install    install the zip for the current user (log out and in once on Wayland)"
 	@echo "make link       symlink the working tree into GNOME Shell (edit, then restart the shell or use make nested)"
 	@echo "make unlink     remove that symlink"
-	@echo "make uninstall  remove the installed extension"
+	@echo "make uninstall  remove the installed extension or the dev link (never deletes your sources)"
 	@echo "make nested     try the installed extension in a nested GNOME Shell window"
 	@echo "make clean      remove build output"
 
@@ -80,7 +80,11 @@ unlink:
 	@if [ -L $(INSTALL_DIR) ]; then rm $(INSTALL_DIR) && echo "Removed link"; else echo "Not a link, nothing to do"; fi
 
 uninstall:
-	gnome-extensions uninstall $(UUID)
+	@if [ -L $(INSTALL_DIR) ]; then \
+		rm $(INSTALL_DIR) && echo "Removed the link; your sources are untouched"; \
+	elif [ -e $(INSTALL_DIR) ]; then \
+		gnome-extensions uninstall $(UUID); \
+	else echo "Not installed, nothing to do"; fi
 
 nested:
 	dbus-run-session -- gnome-shell --devkit --wayland

@@ -18,6 +18,10 @@ human-readable `version-name`; the integer `version` is set by extensions.gnome.
   optional `"admin": true` on the app item. There is no global switch.
 - Polish and Ukrainian translations of the new strings; unit tests for the command builder.
 
+### Fixed
+- `make uninstall` no longer deletes the working tree when the extension was linked with
+  `make link`; it only removes the link.
+
 ### Changed
 - `metadata.json` no longer has the deprecated `version` key (extensions.gnome.org sets it) and its
   description mentions the per-app administrator option.
