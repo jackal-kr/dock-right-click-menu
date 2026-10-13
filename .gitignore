@@ -9,3 +9,6 @@ dock-right-click-menu@jod.local/schemas/gschemas.compiled
 # Dev tooling
 node_modules/
 package-lock.json
+
+# The extension itself must be tracked, even if a global rule ignores *.local
+!dock-right-click-menu@jod.local/
