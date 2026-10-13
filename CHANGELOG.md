@@ -10,6 +10,8 @@ human-readable `version-name`; the integer `version` is set by extensions.gnome.
 ## [1.3.0] - 2026-10-13
 
 ### Added
+- Extension icon (`docs/icon.svg`, PNG exports), shown in the README and uploaded on
+  extensions.gnome.org.
 - **Run as administrator**, chosen app by app (off for every app by default): hold <kbd>Ctrl</kbd>
   while choosing a flagged app in the menu. Flagged entries show *Name (as admin)* while Ctrl is held.
   Terminal emulators open on a `sudo -i` shell, command-line apps run with `sudo` in the default

@@ -1,4 +1,6 @@
-# Dock Right-Click Menu
+<p align="center"><img src="docs/icon-256.png" alt="Dock Right-Click Menu icon" width="96"></p>
+
+<h1 align="center">Dock Right-Click Menu</h1>
 
 A GNOME Shell extension that gives the **Ubuntu Dock** a right-click menu on its empty space.
 You choose the apps, and can group them with separators and one level of submenus.
@@ -188,7 +190,7 @@ dock-right-click-menu/
 │   ├── schemas/                       GSettings schema
 │   └── locale/                        compiled translations (generated, not tracked)
 ├── po/                                translation template and catalogs
-├── docs/                              DEVELOPMENT.md guide, screenshot used by the README
+├── docs/                              DEVELOPMENT.md guide, screenshot, icon (icon.svg, icon-*.png)
 ├── scripts/check-env.sh               `make doctor`
 ├── tests/                             Node.js unit tests for lib/menuModel.js
 ├── .vscode/                           VS Code settings, tasks and recommended extensions
@@ -247,6 +249,8 @@ The Polish and Ukrainian catalogs are a first draft; corrections are welcome.
    (`metadata.json` has no `version` key: extensions.gnome.org sets it).
 2. `make test lint zip`.
 3. Upload `dist/*.zip` to <https://extensions.gnome.org/upload/>.
+4. The icon is not part of the zip: on the extension's page on extensions.gnome.org click the puzzle
+   icon left of the name and upload `docs/icon-512.png` (source: `docs/icon.svg`).
 
 ## License
 
