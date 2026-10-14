@@ -7,6 +7,13 @@ human-readable `version-name`; the integer `version` is set by extensions.gnome.
 
 ## [Unreleased]
 
+## [1.3.2] - 2026-10-14
+
+### Changed
+- The release zip no longer contains `schemas/gschemas.compiled`: GNOME Shell 45+ compiles the
+  schema when the extension is installed, and extensions.gnome.org asks for it to be left out
+  (check EGO-P-006). `make link` and `make nested` still compile it locally.
+
 ## [1.3.1] - 2026-10-13
 
 ### Added

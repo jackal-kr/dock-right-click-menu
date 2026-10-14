@@ -62,7 +62,8 @@ lint:
 zip: build
 	mkdir -p dist
 	rm -f $(ZIP)
-	cd $(EXT_DIR) && zip -qr ../$(ZIP) .
+	# gschemas.compiled is not shipped: GNOME Shell 45+ compiles the schema on install (EGO-P-006).
+	cd $(EXT_DIR) && zip -qr ../$(ZIP) . -x 'schemas/gschemas.compiled'
 	@echo "Built $(ZIP)"
 
 install: zip
